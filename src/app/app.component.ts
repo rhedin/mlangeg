@@ -8,18 +8,25 @@ import { TalkToDocsService } from './talk-to-docs.service';
 })
 export class AppComponent {
   @Input() words: string = '';
-  docs: [{}];
+  docs: Array<Object> = [];
 
   constructor (private talkToDocs: TalkToDocsService) {}
 
   loadNews() {
     console.log(`In loadNews`);
-    this.talkToDocs.loadNews();
+    this.talkToDocs.loadNews(this.words)
+    .subscribe(
+      (docs) => this.docs = docs,
+      (error) => console.log(`Error calling talkToDocs.loadNews.  Error = ${error}`)
+    );
   }
 
   searchNews() {
     console.log(`In searchNews`);
     this.talkToDocs.searchNews(this.words)
-    .subscribe( (docs) => this.docs = docs);
+    .subscribe(
+      (docs) => this.docs = docs,
+      (error) => console.log(`Error calling talkToDocs.searchNews.  Error = ${error}`)
+    );
   }
 }
