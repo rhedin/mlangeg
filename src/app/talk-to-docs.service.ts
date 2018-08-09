@@ -10,17 +10,23 @@ export class TalkToDocsService {
   constructor(private http: HttpClient) { }
 
   loadNews(words: string) : Observable<Array<Object>> {
+    console.log(`In TalkToDocsService.loadNews`);
     return this.http.post<Array<Object>>(
-      'localhost:3000/loadNews',
+      'http://localhost:3000/docs/loadNews',
       {words: words}
     );
   }
 
+  // searchNews(words: string) : Observable<Array<Object>> {
+  //   return this.http.post<Array<Object>>(
+  //     'http://localhost:3000/docs/searchNews',
+  //     {words: words}
+  //   );
+  // }
+
   searchNews(words: string) : Observable<Array<Object>> {
-    return this.http.post<Array<Object>>(
-      'localhost:3000/searchNews',
-      {words: words}
+    return this.http.get<Array<Object>>(
+      'http://localhost:3000/docs/searchNews'
     );
-    return 
   }
 }
