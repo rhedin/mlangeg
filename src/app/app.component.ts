@@ -16,7 +16,10 @@ export class AppComponent {
     console.log(`In loadNews`);
     this.talkToDocs.loadNews(this.words)
     .subscribe(
-      (docs) => this.docs = docs,
+      (docs) => {
+        this.docs = docs;
+        setTimeout( () => this.searchNews(), 1000);
+      },
       (error) => console.log(`Error calling talkToDocs.loadNews.  Error = ${error}`)
     );
   }

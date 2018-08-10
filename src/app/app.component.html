@@ -1,14 +1,20 @@
-<div style="text-align:center;padding:10px;">
+<div>
+  <button id="loadButton" (click)="loadNews()">Press to load new News Stories</button>
+</div>
+<div id="searchDiv">
+  <label id="label" for="input">Words to search for:</label>
+  <input id="input" (keydown.enter)="searchNews()" [(ngModel)]="words">
+  <button id="searchButton" (click)="searchNews()">Search</button>
+</div>
+<div id="docsDiv">
+  <pre>{{docs | json}}</pre>
+</div>
+
+<div style="text-align:center;padding:10px;font-size:8pt;">
   Powered by News API
 </div>
 <!-- API Key
   4f59056a196149c381bd8c5c48c7218a
 -->
 <!-- https://newsapi.org/docs/get-started -->
-
-<div>
-  <button (click)="loadNews()">Press to load new News Stories</button>
-</div>
-<div>
-  <label>Words to search for<input [value]="words"></label><button (click)="searchNews()">Search</button>
-</div>
+  

@@ -1,0 +1,22 @@
+#loadButton {
+    margin: 30px;
+    font-size: 16pt;
+}
+#searchDiv {
+    margin: 30px;
+}
+#label {
+    margin: 5px;
+    font-size: 16pt;
+}
+#input {
+    margin: 5px;
+    font-size: 16pt;
+}
+#searchButton {
+    margin: 5px;
+    font-size: 16pt;
+}
+#docsDiv {
+    margin: 30px;
+}

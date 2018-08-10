@@ -17,16 +17,10 @@ export class TalkToDocsService {
     );
   }
 
-  // searchNews(words: string) : Observable<Array<Object>> {
-  //   return this.http.post<Array<Object>>(
-  //     'http://localhost:3000/docs/searchNews',
-  //     {words: words}
-  //   );
-  // }
-
   searchNews(words: string) : Observable<Array<Object>> {
-    return this.http.get<Array<Object>>(
-      'http://localhost:3000/docs/searchNews'
+    return this.http.post<Array<Object>>(
+      'http://localhost:3000/docs/searchNews',
+      {words: words}
     );
   }
 }
