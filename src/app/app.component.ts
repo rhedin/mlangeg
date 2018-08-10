@@ -13,19 +13,17 @@ export class AppComponent {
   constructor (private talkToDocs: TalkToDocsService) {}
 
   loadNews() {
-    console.log(`In loadNews`);
     this.talkToDocs.loadNews(this.words)
     .subscribe(
       (docs) => {
         this.docs = docs;
-        setTimeout( () => this.searchNews(), 1000);
+        setTimeout( () => this.searchNews(), 1000);  // Not the prettiest solution.
       },
       (error) => console.log(`Error calling talkToDocs.loadNews.  Error = ${error}`)
     );
   }
 
   searchNews() {
-    console.log(`In searchNews`);
     this.talkToDocs.searchNews(this.words)
     .subscribe(
       (docs) => this.docs = docs,
